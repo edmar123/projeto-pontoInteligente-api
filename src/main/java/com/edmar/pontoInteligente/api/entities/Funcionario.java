@@ -38,23 +38,28 @@ public class Funcionario implements Serializable {
 	private String senha;
 	@Column(name ="cpf", nullable = false)
 	private String cpf;
-	@Column(name ="valor_hora", nullable = false)
+	@Column(name ="valor_hora", nullable = true)
 	private BigDecimal valorHora;
-	@Column(name ="qtd_hr_trabalhadas", nullable = false)
+	@Column(name ="qtd_hr_trabalhadas_dia", nullable = true)
 	private Float qtdHorasTrababalhoDia;
-	@Column(name ="qtd_hr_almoco", nullable = false)
+	@Column(name ="qtd_hr_almoco", nullable = true)
 	private Float qtdHorasAlmoco;
 	@Enumerated(EnumType.STRING)
 	@Column(name ="perfil", nullable = false)
 	private PerfilEnum perfil;
-	@Column(name ="data_criacao", nullable = false)
+	@Column(name ="data_criacao", nullable = true)
 	private Date dataCriacao;
-	@Column(name ="data_atualizacao", nullable = false)
+	@Column(name ="data_atualizacao", nullable = true)
 	private Date dataAtualizacao;
 	@ManyToOne(fetch= FetchType.EAGER)
 	private Empresa empresa;
 	@OneToMany(mappedBy="funcionario", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Lancamento> lancamento;
+	
+	
+	public Funcionario() {
+		
+	}
 	public Long getId() {
 		return id;
 	}

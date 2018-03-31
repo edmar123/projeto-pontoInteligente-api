@@ -27,13 +27,13 @@ public class Lancamento implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name ="data", nullable = false)
 	private Date data;
-	@Column(name ="descricao", nullable = false)
+	@Column(name ="descricao", nullable = true)
 	private String descricao;
-	@Column(name ="localizacao", nullable = false)
+	@Column(name ="localizacao", nullable = true)
 	private String localizacao;
-	@Column(name ="data_criacao", nullable = false)
+	@Column(name ="data_criacao", nullable = true)
 	private Date dataCriacao;
-	@Column(name ="data_atualizacao", nullable = false)
+	@Column(name ="data_atualizacao", nullable = true)
 	private Date dataAtualizacao;
 	@Enumerated(EnumType.STRING)
 	@Column(name ="tipo", nullable = false)
@@ -41,6 +41,10 @@ public class Lancamento implements Serializable {
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Funcionario funcionario;
 	
+	
+	public Lancamento() {
+		
+	}
 	public Long getId() {
 		return id;
 	}
